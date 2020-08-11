@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Lista_Contato.Models.Contato>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de contato";
 }
 
-<h2>Index</h2>
+<h2>Lista de contato</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo Contato", "Create")
 </p>
 <table class="table">
     <tr>
@@ -31,9 +31,8 @@
             @Html.DisplayFor(modelItem => item.Email.FirstOrDefault().Email1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id, type = "Normal"}) |
+            @Html.ActionLink("Apagar", "DeleteContato" , new { id = item.Id }, new { onclick = "return confirm('Deseja deletar esse Contato mesmo?');" })
         </td>
     </tr>
 }
